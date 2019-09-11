@@ -1,1 +1,5 @@
 # BLACKJACK TRAINER
+
+## This application was created so that a user could pracitce their blackjack skills. The first version allows you to play against the computer and make any of the decisions you could at an actual blackjack table. The application starts out with asking the player how much money they would like to "deposit" (There is no real money involved). Once they add money to play with, they can now make their bet and begin to play. The cards are dealt to the player and dealer, with one dealer card showing and both player cards showing. From there, you can double down, hit for another card, split the cards, or stand. Once your turn is done, the dealer then goes and the result is shown to you. The player can continue to play the game until their money balance is $0.
+
+## The plan for the second version is to incorporate the blackjack strategy card in the game to give the player professional advice on what to do each hand. Before I add this feature to the game, I wanted to ensure that the actual blackjack game is working the way it should.
