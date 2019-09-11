@@ -13,6 +13,7 @@ class Blackjack:
 
         self.dealerCard1 = self.cardDeck
         self.dealerCard2 = self.cardDeck
+        self.dealerHitCard = self.cardDeck
 
         self.playerCard1 = self.cardDeck
         self.playerCard2 = self.cardDeck
@@ -34,6 +35,22 @@ class Blackjack:
         dealerFirstCard = random.choice(self.dealerCard1)
         dealerSecondCard = random.choice(self.dealerCard2)
         print("\nDealer: {}".format(dealerFirstCard))
+
+        # if the dealer cards is a face card, convert it to a value of 10
+        # otherwise convert the value to int and assign it to the card
+        if dealerFirstCard == "J" or dealerFirstCard == "Q" or dealerFirstCard == "K" or dealerFirstCard == "A":
+            dealerFirstCard = 10
+        else:
+            dealerFirstCard = int(dealerFirstCard)
+
+        if dealerSecondCard == "J" or dealerSecondCard == "Q" or dealerSecondCard == "K" or  dealerSecondCard == "A":
+            dealerSecondCard = 10
+        else:
+            dealerSecondCard = int(dealerSecondCard)
+
+        # get the value of the two cards to keep track of the total number
+        self.dealerTotalCardAmount += dealerFirstCard
+        self.dealerTotalCardAmount += dealerSecondCard
 
         # randomly deal player two cards and show them
         playerFirstCard = random.choice(self.playerCard1)
@@ -72,13 +89,11 @@ class Blackjack:
                 else:
                     self.playerTotalCardAmount += int(doubleDownCard)
                 if self.playerTotalCardAmount == 21:
-                    print("Player: {}, {}, {} -- {} BLACKJACK!".format(playerFirstCard, playerSecondCard, doubleDownCard, self.playerTotalCardAmount))
+                    print("\nPlayer: {}, {}, {} -- {} BLACKJACK!".format(playerFirstCard, playerSecondCard, doubleDownCard, self.playerTotalCardAmount))
                     self.bet = self.bet * 1.5
-                    print("You win ${}!".format(self.bet))
                     break
                 elif self.playerTotalCardAmount > 21:
-                    print("Player: {}, {}, {} -- {} BUST".format(playerFirstCard, playerSecondCard, doubleDownCard, self.playerTotalCardAmount))
-                    print("You lose ${}.".format(self.bet))
+                    print("\nPlayer: {}, {}, {} -- {} BUST".format(playerFirstCard, playerSecondCard, doubleDownCard, self.playerTotalCardAmount))
                     break
                 else:
                     print("Player: {}, {}, {} -- {}".format(playerFirstCard, playerSecondCard, doubleDownCard, self.playerTotalCardAmount))
@@ -89,9 +104,32 @@ class Blackjack:
             elif decision == "Split":
                 print("Sp")
             elif decision == "Stand":
-                print("St")
+                print("\nPlayer: {}, {} -- {}".format(playerFirstCard, playerSecondCard, self.playerTotalCardAmount))
+                break
 
+        dealerList = []
+        while self.dealerTotalCardAmount < 17:
+            if self.bet == 21:
+                print("Player has Blackjack! You win ${}!".format(self.bet))
+            elif self.dealerTotalCardAmount >= 17:
+                print("Dealer: {}, {} -- {}".format(dealerFirstCard, dealerSecondCard, self.dealerTotalCardAmount))
+            elif self.dealerTotalCardAmount < 17:
+                self.dealerHitCard = random.choice(self.dealerHitCard)
+                if self.dealerHitCard == "J" or self.dealerHitCard == "Q" or self.dealerHitCard == "K" or  self.dealerHitCard == "A":
+                    self.dealerHitCard = 10
+                    self.dealerTotalCardAmount += int(self.dealerHitCard)
+                else:
+                    self.dealerTotalCardAmount += int(self.dealerHitCard)
 
+            dealerList.append(int(self.dealerHitCard))
+        print("Dealer: {}, {}, {} -- {}".format(dealerFirstCard, dealerSecondCard, str(dealerList).strip('[]'), self.dealerTotalCardAmount))
+
+        if self.dealerTotalCardAmount < self.playerTotalCardAmount or self.dealerTotalCardAmount > 21:
+            print("\nPlayer wins ${}!".format(self.bet))
+        elif self.dealerTotalCardAmount > self.playerTotalCardAmount and self.dealerTotalCardAmount < 21:
+            print("\nDealer wins, you lose ${}.".format(self.bet))
+        else:
+            print("\nPush, you get your ${} back.".format(self.bet))
 if __name__ == "__main__":
     main = Blackjack()
     result = main.blackJackDealerFunction()
