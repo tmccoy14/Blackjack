@@ -8,8 +8,8 @@ import random
 
 class Blackjack:
     """
-    This project is a simulated black jack application where you play against the dealer
-    while making bets, decide on hands, and get advice from a black jack strategy card
+    This file is a simulated black jack application where you play
+    against the dealer while making bets and deciding on hands
     """
     def __init__(self):
         # simulated deck of cards
@@ -31,10 +31,6 @@ class Blackjack:
 
         # player hit card
         self.playerHitCard = self.cardDeck
-
-    # blackJackStrategyFunction is a function to give you strategic blackjack advice
-    def blackJackStrategyFunction(self):
-        print("continue")
 
     # blackJackDealerFunction is a blackjack simulator to simulate hands of blackjack
     def blackJackDealerFunction(self):
