@@ -1,6 +1,6 @@
 # BLACKJACK TRAINER
 
-![Image description](https://www.google.com/search?q=blackjack+images&rlz=1C5GCEA_enUS866US866&source=lnms&tbm=isch&sa=X&ved=0ahUKEwjnua-cwN_kAhVpRN8KHXioBQ8Q_AUIEigB&biw=1680&bih=861#imgrc=_KJNk38W_tIx9M:)
+![Image description](https://thumbor.forbes.com/thumbor/960x0/https%3A%2F%2Fspecials-images.forbesimg.com%2Fdam%2Fimageserve%2F1051931270%2F960x0.jpg%3Ffit%3Dscale)
 
 ## This application was created so that a user could pracitce their blackjack skills. The first version allows you to play against the computer and make any of the decisions you could at an actual blackjack table. The application starts out with asking the player how much money they would like to "deposit" (There is no real money involved). Once they add money to play with, they can now make their bet and begin to play. The cards are dealt to the player and dealer, with one dealer card showing and both player cards showing. From there, you can double down, hit for another card, split the cards, or stand. Once your turn is done, the dealer then goes and the result is shown to you. The player can continue to play the game until their money balance is $0.
 
